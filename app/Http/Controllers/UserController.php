@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\StoreUpdateUser;
 use App\Models\User;
 
 
@@ -30,7 +31,7 @@ class UserController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StoreUpdateUser $request)
     {
         $created = $this->user->create([
             'name'=>$request->input('name'),
@@ -63,7 +64,7 @@ class UserController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(StoreUpdateUser $request, string $id)
     {
         $updated = $this->user->where('id', $id)->update($request->except('_token', '_method'));
         if($updated){

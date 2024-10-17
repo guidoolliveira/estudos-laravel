@@ -33,6 +33,7 @@ class UserController extends Controller
      */
     public function store(StoreUpdateUser $request)
     {
+        // var_dump("oi");
         $created = $this->user->create([
             'name'=>$request->input('name'),
             'email'=>$request->input('email'),
@@ -64,8 +65,9 @@ class UserController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(StoreUpdateUser $request, string $id)
+    public function update(Request $request, string $id)
     {
+        // var_dump("oi");
         $updated = $this->user->where('id', $id)->update($request->except('_token', '_method'));
         if($updated){
             return redirect()->back()->with('message', 'Sucesso ao Editar');

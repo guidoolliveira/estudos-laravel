@@ -2,7 +2,6 @@
 
 @section('content')
 
-
 <div class="flex justify-end mb-4">
     <a href="{{ route('users.create') }}" class="bg-blue-600 text-white mt-5 mr-5 px-6 py-2 rounded-lg shadow-lg hover:bg-blue-500 transition duration-200">Cadastrar</a>
 </div>
@@ -10,11 +9,13 @@
 <hr>
 
 <h2 class="text-2xl font-bold mb-4 ml-4 mt-2">Usuários</h2>
+
 @if (session()->has('message'))
-                <div class="mb-4 flex justify-center p-2 text-sm text-green-600 bg-green-100 rounded">
-                    {{ session()->get('message') }}
-                </div>
-            @endif
+    <div class="mb-4 flex justify-center p-2 text-sm text-green-600 bg-green-100 rounded">
+        {{ session()->get('message') }}
+    </div>
+@endif
+
 <div class="overflow-x-auto">
     <table class="min-w-full bg-white shadow-md rounded-lg overflow-hidden">
         <thead>
@@ -42,5 +43,3 @@
 </div>
 
 @endsection
-
-
